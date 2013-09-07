@@ -25,8 +25,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'guard-rspec'
   gem 'guard-spring'
+  gem 'meta_request'
 end
 
 group :production do
