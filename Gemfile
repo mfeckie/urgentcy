@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 gem 'coffee-rails'
+gem 'devise'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'pg'
