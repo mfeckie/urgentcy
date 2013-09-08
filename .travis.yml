@@ -4,4 +4,5 @@ rvm:
 
 before_script:
   - psql -c "CREATE USER urgentcy WITH PASSWORD 'urgentcy';" -U postgres
-  - psql -c 'create database urgentcy_development;' -U urgentcy
+  - psql -c 'create database urgentcy_development;' -U postgres
+  - psql -c 'grant all privileges to urgentcy on urgentcy_development;' -U postgres
