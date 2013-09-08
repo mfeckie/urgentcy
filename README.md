@@ -21,5 +21,7 @@ The project is heavily inspired by a project called Emergency Theatre Bookings S
 ## Contributing
 
 [![Code Climate](https://codeclimate.com/github/mfeckie/urgentcy.png)](https://codeclimate.com/github/mfeckie/urgentcy)
+[![Build Status](https://travis-ci.org/mfeckie/urgentcy.png?branch=master)](https://travis-ci.org/mfeckie/urgentcy)
+
 
 TBA
