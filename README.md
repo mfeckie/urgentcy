@@ -17,3 +17,9 @@ The project is heavily inspired by a project called Emergency Theatre Bookings S
 2. Edit `database.yml` to set your preferred database names and credentials
 3. Create the database `bundle exec rake db:create:all && bundle exec rake db:migrate`
 4. You're good to go `rails s`
+
+## Contributing
+
+[![Code Climate](https://codeclimate.com/github/mfeckie/urgentcy.png)](https://codeclimate.com/github/mfeckie/urgentcy)
+
+TBA
