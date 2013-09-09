@@ -5,5 +5,6 @@ class CreateSurgicalSpecialties < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :surgical_specialties, :name, unique: true
   end
 end
