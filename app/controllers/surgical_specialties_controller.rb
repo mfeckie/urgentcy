@@ -1,5 +1,6 @@
 class SurgicalSpecialtiesController < ApplicationController
   before_action :set_surgical_specialty, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /surgical_specialties
   # GET /surgical_specialties.json
