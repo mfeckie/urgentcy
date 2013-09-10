@@ -20,8 +20,7 @@ require 'spec_helper'
 
 describe SurgicalSpecialtiesController do
   before :each do
-    @user = FactoryGirl.create(:user)
-    sign_in :user, @user
+    create_and_sign_in
   end
   # This should return the minimal set of attributes required to create a valid
   # SurgicalSpecialty. As you add validations to SurgicalSpecialty, be sure to
