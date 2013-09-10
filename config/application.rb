@@ -22,6 +22,9 @@ module Urgentcy
 
     config.generators do |g|
       g.test_framework :rspec
+      g.stylesheets false
+      g.helper false
+      g.javascripts false
     end
 
   end
