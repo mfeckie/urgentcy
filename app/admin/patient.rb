@@ -17,4 +17,43 @@ ActiveAdmin.register Patient do
     end
   end
 
+  controller do
+    def permitted_params
+      params.permit!
+    end
+  end
+
+  form do |f|
+    f.inputs "Patient" do
+      f.input :first_name
+      f.input :last_name
+      f.input :mrn
+      f.input :date_of_birth, as: :string
+      f.input :medical_conditions, as: :check_boxes, class: 'inline'
+    end
+    f.buttons
+  end
+
+  show do
+    attributes_table do
+      row :last_name
+      row :first_name
+      row :mrn
+      row :date_of_birth
+      row 'Medical conditions' do
+        formatted_medical_conditions(patient.medical_conditions)
+      end
+    end
+
+
+  end
+
+
+end
+
+def formatted_medical_conditions(mc_array)
+  conditions = mc_array.map do |mc|
+    "<li>#{mc.name}</li>"
+  end.join
+  "<ul>#{conditions}</ul>".html_safe
 end
