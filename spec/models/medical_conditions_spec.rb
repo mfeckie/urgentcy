@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe MedicalCondition do
-  let(:medical_condition) { FactoryGirl.create(:medical_condition) }
+  let(:medical_condition) { FactoryGirl.build_stubbed(:medical_condition) }
 
   subject { medical_condition }
 

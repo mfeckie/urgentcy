@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Surgeon do
-  let(:surgeon) { FactoryGirl.create(:surgeon)}
+  let(:surgeon) { FactoryGirl.build_stubbed(:surgeon)}
 
   subject { surgeon }
 

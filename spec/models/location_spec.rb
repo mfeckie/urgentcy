@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Location do
-  let(:location) { FactoryGirl.create(:location)}
+  let(:location) { FactoryGirl.build_stubbed(:location)}
 
   subject { location }
 
