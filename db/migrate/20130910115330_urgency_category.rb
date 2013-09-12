@@ -1,4 +1,4 @@
-class UrgencyCategory < ActiveRecord::Migration
+class AddUrgencyCategory < ActiveRecord::Migration
   def change
     create_table :urgency_categories do |t|
       t.string :name

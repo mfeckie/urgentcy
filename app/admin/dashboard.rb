@@ -7,10 +7,13 @@ ActiveAdmin.register_page "Dashboard" do
     section "Recently updated content" do
       table_for Version.order('id desc').limit(20) do
         column "Item" do |v|
-          link_to v.item_type.underscore.humanize, [:admin, v.item]
+          v.item_type.underscore.humanize
         end
-        column "Change" do |v|
+        column "Type" do |v|
           v.event
+        end
+        column "Changes" do |v|
+          v.object
         end
         column "When" do |v|
           "#{time_ago_in_words v.created_at.to_s} ago"
