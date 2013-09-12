@@ -1,4 +1,4 @@
-class LocationsController < InheritedResource::Base
+class LocationsController < InheritedResources::Base
   respond_to :html, :json
 
 end
