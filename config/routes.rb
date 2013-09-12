@@ -2,6 +2,7 @@ Urgentcy::Application.routes.draw do
 
   ActiveAdmin.routes(self)
   resources :locations
+  resources :medical_conditions
   resources :surgeons
   resources :surgical_procedures
   resources :surgical_specialties
