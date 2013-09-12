@@ -1,8 +1,8 @@
 Urgentcy::Application.routes.draw do
-  resources :surgical_procedures
-
   ActiveAdmin.routes(self)
+  resources :surgical_procedures
   resources :surgical_specialties
+  resources :urgency_categories
 
   devise_for :users
 
