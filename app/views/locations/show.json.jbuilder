@@ -1,0 +1,1 @@
+json.extract! @location, :name, :ordering_number
