@@ -8,4 +8,6 @@ describe MedicalCondition do
   it { should respond_to :name }
   it { should be_valid }
 
+  it { should have_many(:patients).through(:patient_medical_conditions)}
+
 end

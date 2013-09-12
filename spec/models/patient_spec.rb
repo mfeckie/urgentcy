@@ -10,6 +10,9 @@ describe Patient do
   it { should respond_to :mrn }
   it { should respond_to :date_of_birth }
   it { should respond_to :ward_location }
+
+  it { should have_many(:medical_conditions).through(:patient_medical_conditions) }
+
   it { should be_valid }
 
 
