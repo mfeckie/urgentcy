@@ -1,4 +1,5 @@
 ActiveAdmin.register UrgencyCategory do
+  menu parent: 'Reference Tables'
   filter :name
 
   controller do

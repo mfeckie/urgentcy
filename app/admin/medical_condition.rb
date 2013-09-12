@@ -1,4 +1,6 @@
 ActiveAdmin.register MedicalCondition do
+  menu parent: 'Reference Tables'
+
   filter :name
 
   controller do

@@ -1,4 +1,5 @@
 ActiveAdmin.register SurgicalSpecialty do
+  menu parent: 'Reference Tables'
 
   filter :name
 

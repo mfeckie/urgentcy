@@ -1,4 +1,6 @@
 ActiveAdmin.register Surgeon do
+  menu parent: 'Reference Tables'
+
   filter :first_name
   filter :last_name
 
