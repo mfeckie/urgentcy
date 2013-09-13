@@ -1,18 +1,26 @@
 ActiveAdmin.register Patient do
-  fields = %i[id last_name first_name age date_of_birth ward_location]
+
+  filter :first_name
+  filter :last_name
+  filter :date_of_birth
+  filter :mrn
+
   index do
     selectable_column
-    column :id
+    #column :id
     column :last_name
     column :first_name
-    column :age
+    column :mrn
     column :date_of_birth
+    column :age
     column :ward_location
     default_actions
   end
 
+
+
   csv do
-    fields.each do |sym|
+    %i[id last_name first_name age date_of_birth ward_location].each do |sym|
       column sym
     end
   end
@@ -28,7 +36,7 @@ ActiveAdmin.register Patient do
       f.input :first_name
       f.input :last_name
       f.input :mrn
-      f.input :date_of_birth, as: :string
+      f.input :date_of_birth, as: :date_select, start_year: Time.now.year - 120, end_year: Time.now.year
       f.input :medical_conditions, as: :check_boxes, class: 'inline'
     end
     f.buttons
