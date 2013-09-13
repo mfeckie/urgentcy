@@ -12,6 +12,7 @@ describe Patient do
   it { should respond_to :ward_location }
 
   it { should have_many(:medical_conditions).through(:patient_medical_conditions) }
+  it { should have_many :bookings }
 
   it { should be_valid }
 

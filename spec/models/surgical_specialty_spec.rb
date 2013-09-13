@@ -7,6 +7,8 @@ describe SurgicalSpecialty do
 
   it { should respond_to :name }
 
+  it { should have_many :bookings}
+
   describe "Duplicate names" do
     before do
       @name = "Test Name"

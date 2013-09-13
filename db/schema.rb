@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130912135717) do
+ActiveRecord::Schema.define(version: 20130913131127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,28 @@ ActiveRecord::Schema.define(version: 20130912135717) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "bookings", force: true do |t|
+    t.integer "patient_id"
+    t.integer "urgency_category_id"
+    t.integer "surgical_specialty_id"
+    t.integer "surgical_procedure_id"
+    t.integer "surgeon_id"
+    t.integer "location_id"
+    t.integer "required_minutes"
+    t.integer "required_hours"
+    t.string  "notice_required"
+    t.string  "availability"
+    t.string  "booking_status"
+  end
+
+  add_index "bookings", ["booking_status"], name: "index_bookings_on_booking_status", using: :btree
+  add_index "bookings", ["location_id"], name: "index_bookings_on_location_id", using: :btree
+  add_index "bookings", ["patient_id"], name: "index_bookings_on_patient_id", using: :btree
+  add_index "bookings", ["surgeon_id"], name: "index_bookings_on_surgeon_id", using: :btree
+  add_index "bookings", ["surgical_procedure_id"], name: "index_bookings_on_surgical_procedure_id", using: :btree
+  add_index "bookings", ["surgical_specialty_id"], name: "index_bookings_on_surgical_specialty_id", using: :btree
+  add_index "bookings", ["urgency_category_id"], name: "index_bookings_on_urgency_category_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string "name"

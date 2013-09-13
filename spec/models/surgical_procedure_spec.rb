@@ -8,6 +8,8 @@ describe SurgicalProcedure do
   it { should respond_to :name }
   it { should be_valid }
 
+  it { should have_many :bookings}
+
   describe "Duplicates" do
     before do
       @name = {name: "Test name"}

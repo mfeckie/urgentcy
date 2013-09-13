@@ -9,5 +9,6 @@ describe Location do
   it { should respond_to :ordering_number }
   it { should be_valid }
 
+  it { should have_many :bookings}
 
 end

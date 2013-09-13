@@ -12,4 +12,6 @@ describe Surgeon do
   it { should respond_to :pager }
   it { should be_valid }
 
+  it { should have_many :bookings}
+
 end
