@@ -7,6 +7,7 @@ Urgentcy::Application.routes.draw do
   resources :surgical_procedures
   resources :surgical_specialties
   resources :urgency_categories
+  resources :patients
 
   devise_for :users
 

@@ -10,4 +10,8 @@ class Patient < ActiveRecord::Base
     ((Time.now.to_time - date_of_birth.to_time) / 1.years).to_i
   end
 
+  def combined_details
+    "#{last_name}, #{first_name} - #{mrn}"
+  end
+
 end

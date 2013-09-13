@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'paper_trail', '~> 3.0.0.beta1'
 gem 'pg'
 gem 'sass-rails'
+gem "simple_form", "~> 3.0.0.rc"
 gem 'turbolinks'
 gem 'uglifier'
 gem 'unicorn-rails'
