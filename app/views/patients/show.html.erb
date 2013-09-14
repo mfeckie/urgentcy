@@ -1,0 +1,35 @@
+<div class="col-lg-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">Patient details</h1>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-lg-6">
+          <dl class="dl-horizontal">
+            <dt>Last name</dt>
+            <dd><%= @patient.last_name %></dd>
+            <dt>First name</dt>
+            <dd><%= @patient.first_name %></dd>
+            <dt>MRN</dt>
+            <dd><%= @patient.mrn %></dd>
+            <dt>Date of Birth</dt>
+            <dd><%= @patient.date_of_birth %></dd>
+            <dt>Age</dt>
+            <dd><%= @patient.age %></dd>
+          </dl>
+        </div>
+
+
+        <div class="col-lg-6">
+          <p class="">Medical conditions <span class="badge"><%= @patient.medical_conditions.count %></span></p>
+          <ul>
+            <% @patient.medical_conditions.each do |mc| %>
+                <li><%= mc.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
