@@ -7,7 +7,7 @@ class Patient < ActiveRecord::Base
   has_many :bookings
 
   def age
-    ((Time.now.to_time - date_of_birth.to_time) / 1.years).to_i
+    ((Time.now.to_time - date_of_birth.to_time) / 1.years).to_i unless date_of_birth.nil?
   end
 
   def combined_details
