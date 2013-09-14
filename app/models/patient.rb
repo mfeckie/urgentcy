@@ -7,6 +7,7 @@ class Patient < ActiveRecord::Base
   has_many :bookings
 
   def age
+    #TODO What if they are less than 1? should show months / weeks / days
     ((Time.now.to_time - date_of_birth.to_time) / 1.years).to_i unless date_of_birth.nil?
   end
 

@@ -12,4 +12,5 @@
  *= require formtastic
  *= require bootstrap
  *= require bootstrap-and-overrides
+ *= require jquery-ui
  */

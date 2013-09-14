@@ -7,7 +7,6 @@ ActiveAdmin.register Patient do
 
   index do
     selectable_column
-    #column :id
     column :last_name
     column :first_name
     column :mrn

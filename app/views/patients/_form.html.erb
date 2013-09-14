@@ -1,6 +1,42 @@
-<%= simple_form_for @patient do |f| %>
-    <p>Owner</p><p>Gary</p>
-    <%= f.input :last_name %>
+<%= form_for @patient, html: {role: 'form', class: 'form-horizontal'} do |f| %>
+    <div class="form-group">
+      <%= f.label :last_name, class: 'col-lg-2 col-sm-2 control-label' %>
+      <div class="col-lg-6 col-sm-4 col-xs-12">
+        <%= f.text_field :last_name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :first_name, class: 'col-lg-2 col-sm-2 control-label' %>
+      <div class="col-lg-6 col-sm-4 col-xs-12">
+        <%= f.text_field :first_name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :mrn, class: 'col-lg-2 col-sm-2 control-label' %>
+      <div class="col-lg-6 col-sm-4 col-xs-12">
+        <%= f.text_field :mrn, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :date_of_birth, class: 'col-lg-2 col-sm-2 control-label' %>
+      <div class="col-lg-6 col-sm-4 col-xs-12">
+        <div class="date-picker"></div>
+        <%= f.hidden_field :date_of_birth  %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :ward_location, class: 'col-lg-2 col-sm-2 control-label' %>
+      <div class="col-lg-6 col-sm-4 col-xs-12">
+        <%= f.text_field :ward_location, class: 'form-control' %>
+      </div>
+    </div>
 
 
+
+
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-6 col-sm-4 col-xs-12">
+        <%= f.submit 'Save', class: 'btn btn-default' %>
+      </div>
+    </div>
 <% end %>
