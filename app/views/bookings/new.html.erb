@@ -1,0 +1,71 @@
+<div class="col-lg-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>New booking request</h2>
+    </div>
+    <div class="panel-body">
+
+      <%= form_for @booking, html: {role: 'form', class: 'form-horizontal'} do |b| %>
+          <div class="form-group">
+            <%= b.label :patient, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-6 col-sm-4 col-xs-12">
+              <%= b.collection_select :patient_id, Patient.all, :id, :combined_details, {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= b.label :urgency, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-6 col-sm-4 col-xs-12">
+              <%= b.collection_select :urgency_category_id, UrgencyCategory.all, :id, :urgency_in_words, {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= b.label :surgeon, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-6 col-sm-4 col-xs-12">
+              <%= b.collection_select :surgeon_id, Surgeon.order(:last_name), :id, :full_name, {}, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= b.label :planned_procedure, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-6 col-sm-4 col-xs-12">
+              <%= b.collection_select :surgical_procedure_id, SurgicalProcedure.all, :id, :name, {}, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= b.label :specialty, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-6 col-sm-4 col-xs-12">
+              <%= b.collection_select :surgical_specialty_id, SurgicalSpecialty.all, :id, :name, {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= b.label :required_hours, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-2 col-sm-2 col-xs-12">
+              <%= b.number_field :required_hours, class: 'form-control' %>
+            </div>
+            <%= b.label :required_minutes, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-2 col-sm-2 col-xs-12">
+              <%= b.number_field :required_minutes, class: 'form-control', step: 5, min: 0, max: 55 %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= b.label :notice_required, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <%= b.text_field :notice_required, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= b.label :availability, class: 'col-lg-2 col-sm-2 control-label' %>
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <%= b.text_field :availability, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-6 col-sm-4 col-xs-12">
+              <%= b.submit 'Send request', class: 'btn btn-default' %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
