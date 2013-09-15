@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Urgentcy::Application.config.secret_key_base = '539ebbd01f6ef279477ad9016c9fd43b418468be9e43dfa7e9d4997d32437c480bcb595191bf17db17214a5c1aea5e636ef19e10ecebc66f4c13c6c3cc898285'
+Urgentcy::Application.config.secret_key_base = '2e5f48e198e041ea5cfd34040d8cf11591aab44c2e7bc7eb61d5f09dab409fb71d13d10b6c933338e6a0e2f3946fb44f4f040696e97e4673b371c1ca47396158'
