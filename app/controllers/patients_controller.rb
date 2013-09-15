@@ -1,4 +1,5 @@
 class PatientsController < InheritedResources::Base
+  before_filter :authenticate_user!
   respond_to :html, :json
 
   private
