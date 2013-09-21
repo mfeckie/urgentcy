@@ -6,6 +6,6 @@ class BookingsController < InheritedResources::Base
 
   def resource_params
     return [] if request.get?
-    [ params.require(:patient).permit! ]
+    [ params.require(:booking).permit! ]
   end
 end

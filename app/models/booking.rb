@@ -6,6 +6,7 @@ class Booking < ActiveRecord::Base
   belongs_to :surgical_specialty
   belongs_to :urgency_category
 
+  accepts_nested_attributes_for :patient
 
 
 end

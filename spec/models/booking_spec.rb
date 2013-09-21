@@ -25,6 +25,7 @@ describe Booking do
   it { should belong_to :surgical_procedure }
   it { should belong_to :surgical_specialty }
   it { should belong_to :urgency_category }
+  it { should accept_nested_attributes_for :patient }
 
 
 end
