@@ -4,7 +4,8 @@ class PatientsController < InheritedResources::Base
 
   def search
     if params[:mrn]
-      @patients = Patient.where(mrn: params[:mrn])
+      #@patients = Patient.where(mrn: params[:mrn])
+      @patients = Patient.where("mrn LIKE '%#{params[:mrn]}%'")
     elsif params[:last_name]
       @patients = Patient.where(last_name: params[:last_name])
     elsif params[:first_name]
@@ -12,7 +13,7 @@ class PatientsController < InheritedResources::Base
     else
       @patients = Patient.all
     end
-    respond_with @patients
+    respond_with patients: @patients
   end
 
   private
