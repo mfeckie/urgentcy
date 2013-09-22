@@ -1,5 +1,11 @@
 <%= form_for @patient, html: {role: 'form', class: 'form-horizontal'} do |f| %>
     <div class="form-group">
+      <%= f.label :mrn, class: 'col-lg-2 col-sm-2 control-label' %>
+      <div class="col-lg-6 col-sm-4 col-xs-12">
+        <%= f.text_field :mrn, class: 'form-control mrn-picker', placeholder: 'Will search for existing patients as you type' %>
+      </div>
+    </div>
+    <div class="form-group">
       <%= f.label :last_name, class: 'col-lg-2 col-sm-2 control-label' %>
       <div class="col-lg-6 col-sm-4 col-xs-12">
         <%= f.text_field :last_name, class: 'form-control' %>
@@ -9,12 +15,6 @@
       <%= f.label :first_name, class: 'col-lg-2 col-sm-2 control-label' %>
       <div class="col-lg-6 col-sm-4 col-xs-12">
         <%= f.text_field :first_name, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :mrn, class: 'col-lg-2 col-sm-2 control-label' %>
-      <div class="col-lg-6 col-sm-4 col-xs-12">
-        <%= f.text_field :mrn, class: 'form-control' %>
       </div>
     </div>
     <div class="form-group">

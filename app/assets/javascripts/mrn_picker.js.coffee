@@ -1,0 +1,4 @@
+$ ->
+  $('.mrn-picker').autocomplete(
+
+  )

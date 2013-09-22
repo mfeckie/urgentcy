@@ -6,60 +6,114 @@
     <div class="panel-body">
 
       <%= form_for @booking, html: {role: 'form', class: 'form-horizontal'} do |b| %>
-          <div class="form-group">
-            <%= b.label :patient, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-6 col-sm-4 col-xs-12">
-              <%= b.collection_select :patient_id, Patient.all, :id, :combined_details, {}, class: 'form-control' %>
-            </div>
-          </div>
-          <div class="form-group">
-            <%= b.label :urgency, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-6 col-sm-4 col-xs-12">
-              <%= b.collection_select :urgency_category_id, UrgencyCategory.all, :id, :urgency_in_words, {}, class: 'form-control' %>
-            </div>
-          </div>
-          <div class="form-group">
-            <%= b.label :surgeon, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-6 col-sm-4 col-xs-12">
-              <%= b.collection_select :surgeon_id, Surgeon.order(:last_name), :id, :full_name, {}, class: 'form-control' %>
-            </div>
-          </div>
+          <fieldset>
+            <legend>Patient</legend>
+            <h3>Select patient from list or register a new patient below</h3>
 
-          <div class="form-group">
-            <%= b.label :planned_procedure, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-6 col-sm-4 col-xs-12">
-              <%= b.collection_select :surgical_procedure_id, SurgicalProcedure.all, :id, :name, {}, class: 'form-control' %>
+            <div class="form-group">
+              <%= b.label :mrn, 'MRN', class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= text_field :mrn, class: 'form-control' %>
+              </div>
             </div>
-          </div>
+            <fieldset>
+              <legend>New Patient</legend>
+              <%= fields_for Patient.new do |p| %>
+                  <div class="form-group">
+                    <%= p.label :last_name, class: 'col-lg-2 col-sm-2 control-label' %>
+                    <div class="col-lg-6 col-sm-4 col-xs-12">
+                      <%= p.text_field :last_name, class: 'form-control' %>
+                    </div>
+                  </div>
 
-          <div class="form-group">
-            <%= b.label :specialty, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-6 col-sm-4 col-xs-12">
-              <%= b.collection_select :surgical_specialty_id, SurgicalSpecialty.all, :id, :name, {}, class: 'form-control' %>
+                  <div class="form-group">
+                    <%= p.label :first_name, class: 'col-lg-2 col-sm-2 control-label' %>
+                    <div class="col-lg-6 col-sm-4 col-xs-12">
+                      <%= p.text_field :first_name, class: 'form-control' %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= p.label :mrn, class: 'col-lg-2 col-sm-2 control-label' %>
+                    <div class="col-lg-6 col-sm-4 col-xs-12">
+                      <%= p.text_field :mrn, class: 'form-control' %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= p.label :date_of_birth, class: 'col-lg-2 col-sm-2 control-label' %>
+                    <div class="col-lg-6 col-sm-4 col-xs-12">
+                      <div class="date-picker">
+                        <%= p.hidden_field :date_of_birth, class: 'form-control' %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= p.label :ward_location, class: 'col-lg-2 col-sm-2 control-label' %>
+                    <div class="col-lg-6 col-sm-4 col-xs-12">
+                      <%= p.text_field :ward_location, class: 'form-control' %>
+                    </div>
+                  </div>
+
+
+            <% end %>
+            </fieldset>
+
+
+          </fieldset>
+          <fieldset>
+            <legend>Booking</legend>
+
+            <div class="form-group">
+              <%= b.label :urgency, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= b.collection_select :urgency_category_id, UrgencyCategory.all, :id, :urgency_in_words, {}, class: 'form-control' %>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <%= b.label :required_hours, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-2 col-sm-2 col-xs-12">
-              <%= b.number_field :required_hours, class: 'form-control' %>
+            <div class="form-group">
+              <%= b.label :surgeon, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= b.collection_select :surgeon_id, Surgeon.order(:last_name), :id, :full_name, {}, class: 'form-control' %>
+              </div>
             </div>
-            <%= b.label :required_minutes, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-2 col-sm-2 col-xs-12">
-              <%= b.number_field :required_minutes, class: 'form-control', step: 5, min: 0, max: 55 %>
+
+            <div class="form-group">
+              <%= b.label :planned_procedure, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= b.collection_select :surgical_procedure_id, SurgicalProcedure.all, :id, :name, {}, class: 'form-control' %>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <%= b.label :notice_required, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-6 col-sm-6 col-xs-12">
-              <%= b.text_field :notice_required, class: 'form-control' %>
+
+            <div class="form-group">
+              <%= b.label :specialty, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= b.collection_select :surgical_specialty_id, SurgicalSpecialty.all, :id, :name, {}, class: 'form-control' %>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <%= b.label :availability, class: 'col-lg-2 col-sm-2 control-label' %>
-            <div class="col-lg-6 col-sm-6 col-xs-12">
-              <%= b.text_field :availability, class: 'form-control' %>
+            <div class="form-group">
+              <%= b.label :required_hours, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-2 col-sm-2 col-xs-12">
+                <%= b.number_field :required_hours, class: 'form-control' %>
+              </div>
+              <%= b.label :required_minutes, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-2 col-sm-2 col-xs-12">
+                <%= b.number_field :required_minutes, class: 'form-control', step: 5, min: 0, max: 55 %>
+              </div>
             </div>
-          </div>
+            <div class="form-group">
+              <%= b.label :notice_required, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-6 col-xs-12">
+                <%= b.text_field :notice_required, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= b.label :availability, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-6 col-xs-12">
+                <%= b.text_field :availability, class: 'form-control' %>
+              </div>
+            </div>
+          </fieldset>
           <div class="form-group">
             <div class="col-lg-offset-2 col-lg-6 col-sm-4 col-xs-12">
               <%= b.submit 'Send request', class: 'btn btn-default' %>

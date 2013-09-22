@@ -18,5 +18,7 @@ Urgentcy::Application.routes.draw do
     get "/about" => :about, as: :about_page
   end
 
+  get 'patients_search/' => 'patients#search', defaults: {format: :json}
+
   root to: "static_pages#home"
 end
