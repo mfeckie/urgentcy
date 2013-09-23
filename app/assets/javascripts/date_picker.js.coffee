@@ -5,5 +5,4 @@ $ ->
     changeMonth: true
     altField: "#patient_date_of_birth"
     altFormat: "dd-mm-yy"
-    numberOfMonths: 3
   )

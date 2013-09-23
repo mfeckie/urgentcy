@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :surgical_procedure do
-    sequence(:name) { |n| "name #{n}" }
+    sequence(:name) { |n| "Surgical Procedure #{n}" }
   end
 end

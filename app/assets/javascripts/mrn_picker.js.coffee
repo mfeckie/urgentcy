@@ -4,14 +4,18 @@ $ ->
       $.ajax(
         url: '/patients_search'
         dataType: 'json'
-        data: 'mrn=' +request.term,
+        data: 'mrn=' + request.term,
         success: (data) ->
-          response($.map(data.patients, (patient) ->
-            return {
-            label: patient.last_name + ", " + patient.first_name + " - MRN: " + patient.mrn
-            value: patient.mrn
-            }
-          )))
-    minLength: 2
+          response(parsePatients(data))
+      )
+    minLength: 4
 
+  )
+
+parsePatients = (data) ->
+  $.map(data.patients, (patient) ->
+    return {
+    label: patient.last_name + ", " + patient.first_name + " Date of Birth: (" + patient.date_of_birth + ") - MRN: " + patient.mrn
+    value: patient.mrn
+    }
   )
