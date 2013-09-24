@@ -13,7 +13,6 @@ gem "jquery-turbolinks"
 gem "paper_trail", "~> 3.0.0.beta1"
 gem "pg"
 gem "sass-rails"
-gem "turbolinks"
 gem "uglifier"
 gem "unicorn-rails"
 

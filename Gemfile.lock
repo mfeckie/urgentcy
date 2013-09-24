@@ -286,6 +286,5 @@ DEPENDENCIES
   sass-rails
   sdoc
   shoulda-matchers
-  turbolinks
   uglifier
   unicorn-rails
