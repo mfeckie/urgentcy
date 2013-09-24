@@ -1,0 +1,60 @@
+<div class="modal fade" id="new_patient_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">New patient</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for Patient.new, html: {role: 'form', class: 'form-horizontal'}, remote: true do |p| %>
+            <div class="form-group">
+              <%= p.label :last_name, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= p.text_field :last_name, class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= p.label :first_name, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= p.text_field :first_name, class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= p.label :mrn, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= p.text_field :mrn, class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= p.label :date_of_birth, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <div class="date-picker">
+                  <%= p.hidden_field :date_of_birth, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= p.label :ward_location, class: 'col-lg-2 col-sm-2 control-label' %>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <%= p.text_field :ward_location, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+
+            </div>
+            <div class="modal-footer">
+              <div class="col-lg-offset-2 col-lg-6 col-sm-4 col-xs-12">
+                <%= p.submit 'Save patient', class: 'btn btn-default' %>
+              </div>
+              <button type="button" class="btn btn-success">Save</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        <% end %>
+        </div>
+  </div>
+</div>
