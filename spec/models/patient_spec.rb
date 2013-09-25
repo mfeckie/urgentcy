@@ -16,6 +16,8 @@ describe Patient do
 
   it { should be_valid }
 
+  it { should validate_uniqueness_of :mrn }
+
 
 
 end
