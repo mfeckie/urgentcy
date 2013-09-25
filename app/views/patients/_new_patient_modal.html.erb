@@ -6,24 +6,24 @@
         <h4 class="modal-title">New patient</h4>
       </div>
       <div class="modal-body">
-        <%= form_for Patient.new, html: {role: 'form', class: 'form-horizontal'}, remote: true do |p| %>
+        <%= form_for Patient.new, html: {role: 'form', id: 'new_patient_form', class: 'form-horizontal'} do |p| %>
             <div class="form-group">
               <%= p.label :last_name, class: 'col-lg-2 col-sm-2 control-label' %>
-              <div class="col-lg-6 col-sm-4 col-xs-12">
+              <div class="col-lg-10 col-sm-10 col-xs-12">
                 <%= p.text_field :last_name, class: 'form-control' %>
               </div>
             </div>
 
             <div class="form-group">
               <%= p.label :first_name, class: 'col-lg-2 col-sm-2 control-label' %>
-              <div class="col-lg-6 col-sm-4 col-xs-12">
+              <div class="col-lg-10 col-sm-10 col-xs-12">
                 <%= p.text_field :first_name, class: 'form-control' %>
               </div>
             </div>
 
             <div class="form-group">
               <%= p.label :mrn, class: 'col-lg-2 col-sm-2 control-label' %>
-              <div class="col-lg-6 col-sm-4 col-xs-12">
+              <div class="col-lg-10 col-sm-10 col-xs-12">
                 <%= p.text_field :mrn, class: 'form-control' %>
               </div>
             </div>
@@ -39,20 +39,18 @@
 
             <div class="form-group">
               <%= p.label :ward_location, class: 'col-lg-2 col-sm-2 control-label' %>
-              <div class="col-lg-6 col-sm-4 col-xs-12">
+              <div class="col-lg-10 col-sm-10 col-xs-12">
                 <%= p.text_field :ward_location, class: 'form-control' %>
               </div>
             </div>
             <div class="form-group">
+              <p class="col-lg-2 col-sm-2 control-label" id="status"></p>
             </div>
 
             </div>
             <div class="modal-footer">
-              <div class="col-lg-offset-2 col-lg-6 col-sm-4 col-xs-12">
-                <%= p.submit 'Save patient', class: 'btn btn-default' %>
-              </div>
-              <button type="button" class="btn btn-success">Save</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="commit" class="btn btn-success col-lg-offset-4 col-sm-offset-4" id="save_patient">Save patient</button>
+                <button type="submit" name="commit" class="btn btn-success col-lg-offset-4 col-sm-offset-4" id="close_modal" data-dismiss="modal">Close Window</button>
             </div>
         <% end %>
         </div>
